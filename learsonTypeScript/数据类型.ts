@@ -70,10 +70,15 @@
 
 // Object 非原始类型 
 // 也就是除了 number string boolean symbol null undefined
-function create(o: object | null | number){
-  console.log(o);
-}
-
-create({ person: 'yang' })  // success
-create(null) // success
+// function create(o: object | null | number){
+//   console.log(o);
+// }
+// create({ person: 'yang' })  // success
+// create(null) // success
 // create('yang')
+
+// 类型断言
+
+// let someValue: any = '3333'
+// let valueLength: number = (someValue as string).length
+// console.log(valueLength);
