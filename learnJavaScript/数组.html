@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 遍历
+    let Array = [1,2,3,4,5]
+    for((item) of Array){
+      console.log(item);
+    }
+    // Array.form Array .of
+
+    const inventory = [
+      {name:'apples',quantity:2},
+      {name:'bananas',quantity:0},
+      {name:'cherries',quantity:5},
+    ]
+    // 查找指定的值
+    const bananas = inventory.find(fruit=>fruit.name==="bananas")
+    // 查找指定的值的索引
+    const bananasIndex = inventory.findIndex(fruit=>fruit.name==="bananas")
+    console.log(bananas,bananasIndex);
+    // 包含一个就返回true
+    const isEnough = inventory.some(fruit=>fruit.quantity>2)
+    console.log(isEnough);
+    // 必须都符合才返回true
+    const isEvery = inventory.every(fruit=>fruit.quantity>-1)
+    console.log(isEvery);
+    // 剩余参数
+    let sum = (...values)=>{
+      console.log(values.reduce((pre,curr)=>pre+curr,0));
+    }
+    sum(1,2,3) // 6
+    // 
+    let converCurrency = (rate,...values)=>{
+      console.log(values.map(value=>rate*value));
+    }
+    const amounts = converCurrency(0.89,123,45,75,23)
+    </script>
+</body>
+</html>

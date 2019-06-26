@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  .hightLight{
+    background: #7fc77f;
+    color: #fff;
+    padding: 0 10px
+  }
+  </style>
+</head>
+
+<body>
+  <script>
+    // 标签字符串
+    function heightLight (strings, ...values){
+      const highLighted = values.map(value => 
+        `<span class="hightLight">${value}</span>`
+      )
+      console.log(strings);
+      return strings.reduce((prev, curr, i) =>
+        `${prev}${curr}${highLighted[i] || ''}`
+        , "")
+    }
+    const user = "Jime";
+    const old = 18;
+    // 使用上面定义的
+    const sentence = heightLight`${user} has ${old} old`
+    document.body.innerHTML = sentence
+
+    // 新加的字符方法
+    const id ="41072719970625361X"
+    const fan = 'I love Yang'
+    // startsWidth(start,position) 判断是否以start为开头,position代表从第几位开始
+    console.log(id.startsWith('410')); //true
+    console.log(id.startsWith('1997',6)); // true
+    // endsWidth(start,position) 判断是否以start结尾 严格区分大小写
+    console.log(id.endsWith('X')); //true
+    console.log(id.endsWith('x')); //false
+    // includes(searchString,position) 判断searchString是否存在
+    console.log(fan.includes('I')); //true
+    console.log(fan.includes('i')); //false
+    console.log(fan.includes('love',2)); //true
+    // repeat(number)重复几次
+    console.log(`${'-'.repeat(6)}${fan}${'-'.repeat(6)}`);//------I love Yang------
+    // 右对齐
+    let paddingRight = (string,length=25)=>{
+      console.log(`${' '.repeat(Math.max(length-string.length,0))}${string}`);
+    }
+    paddingRight(id)
+    paddingRight(fan)
+    let tower = (type,height)=>{
+      for(let i =1;i<height+1;i++){
+        console.log(`${' '.repeat(Math.max(height-i,0))}${type.repeat(2*i-1)}`);
+      }
+    }
+    tower('*',5)
+  </script>
+</body>
+
+</html>

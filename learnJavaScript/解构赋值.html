@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 对象的解构
+    let Person = {
+      name: 'zhangsan',
+      old: 18,
+      Hobby: {
+        coding: "coding",
+        shopping: "shopping",
+      }
+    }
+    // 可以指定默认值 job="student",如果没有这个参数则使用student
+    // 可以重新命名 name:n
+    let { name: n, old, job = "student" } = Person
+    let { coding, shopping } = Person.Hobby
+    console.log(n); //zhangsan
+    console.log(old); // 18
+    console.log(job); // student
+    console.log(coding); // coding
+    console.log(shopping); // shopping
+    // 数组的解构
+    let Array = [1, 2, 3, 4, 5]
+    let [one, two, ...value] = Array
+    console.log(one); // 1
+    console.log(two);  // 2
+    console.log(value); // [3,4,5]
+    // 交换位置
+    let a = 10;
+    let c = 30;
+    [a, c] = [c, a];
+    console.log(a);
+    console.log(c);
+  </script>
+</body>
+
+</html>
