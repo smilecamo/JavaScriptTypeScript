@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 初探
+    const PromiseDemo = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('this is success')
+      }, 2000)
+      setTimeout(() => {
+        reject('this is Error')
+      }, 2000)
+    })
+    PromiseDemo.then(data => {
+      console.log(data);
+    }).catch(err => {
+      console.log(err);
+    })
+
+
+    // 
+    const students = [
+      {id:1,name:'张三'},
+      {id:2,name:'李四'},
+      {id:3,name:'王五'}
+    ]
+    const studentsOld = [
+      {name:'张三',old:18},
+      {name:'李四',old:24},
+      {name:'王五',old:19}
+    ]
+    // 根据id查找学生姓名
+    let getStudentId = (id)=>{
+      return new Promise((resolve,reject)=>{
+        const studentId = students.find(student=>student.id === id)
+        if(studentId){
+          resolve(studentId)
+        }
+        reject(Error('no studentId'))
+      })
+    }
+    let getStudentOld = (studentInfo) =>{
+      return new Promise((resolve,reject)=>{
+        const studentNewInfo = studentsOld.find(student=>student.name===studentInfo.name)
+        if(studentNewInfo){
+          studentInfo.old=studentNewInfo.old
+          resolve(studentInfo)
+        }
+        reject(Error('no student info'))
+      })
+    }
+    // 根据学生姓名查找年龄
+    getStudentId(1).then(data=>{
+      getStudentOld(data).then(data=>{
+        console.log(data);
+      }).catch(err=>{
+        console.log(err);
+      })
+    }).catch(err=>{
+      console.log(err);
+    })
+  </script>
+</body>
+
+</html>

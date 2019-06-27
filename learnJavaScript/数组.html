@@ -7,7 +7,43 @@
   <title>Document</title>
 </head>
 <body>
+  <style>
+  .heading{
+    margin-top: 10%;
+    background: aquamarine;
+    color:#fff;
+    text-align: center;
+    line-height: 300px;
+    width: 100%;
+    height: 300px;
+    font-size: 150px;
+  }
+  .heading span{
+    cursor: pointer;
+    display: inline-block;
+    transition: transform .5s
+  }
+  .heading span:hover{
+    transform: translateY(-20px) rotate(10deg) scale(2)
+  }
+  </style>
+    <div class="heading">Yang!</div>
+    
   <script>
+    // const head = document.querySelector('.heading')
+    // let setWidthSpan=(words)=>{
+    //   return [...words].map(word=>
+    //     `<span>${word}</span>`
+    //   ).join('')
+    // }
+    // head.innerHTML = setWidthSpan(head.textContent)
+    const head = document.querySelector('.heading')
+    let setWordHtml = words=>{
+      return [...words].map(word=>
+        `<span>${word}</span>`
+      ).join('')
+    }
+    head.innerHTML = setWordHtml(head.textContent)
     // 遍历
     let Array = [1,2,3,4,5]
     for((item) of Array){
@@ -31,16 +67,26 @@
     // 必须都符合才返回true
     const isEvery = inventory.every(fruit=>fruit.quantity>-1)
     console.log(isEvery);
+
     // 剩余参数
     let sum = (...values)=>{
       console.log(values.reduce((pre,curr)=>pre+curr,0));
     }
     sum(1,2,3) // 6
     // 
-    let converCurrency = (rate,...values)=>{
+    let convertCurrency = (rate,...values)=>{
       console.log(values.map(value=>rate*value));
     }
-    const amounts = converCurrency(0.89,123,45,75,23)
+    const amounts = convertCurrency(0.89,123,45,75,23)
+
+    // 扩展(展开)运算符
+    let num1 = ['1','3','5']
+    const num2 = ['2','4','6']
+    console.log([...num1,'10',...num2]);
+    const findIndexNum1 = num1.findIndex(item=>item==='1')
+    console.log(findIndexNum1);
+    const newNum1 = num1.splice(findIndexNum1,1)
+    console.log(num1);
     </script>
 </body>
 </html>
