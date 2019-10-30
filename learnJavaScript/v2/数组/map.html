@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>map</title>
+</head>
+
+<body>
+  <script>
+/*     // ===========场景1 一个数组乘以2放到另一个数组中去
+    // es5
+    let numbers = [1, 2, 3]
+    let es5DoubleNumbers =[]
+    for(var i=0;i<numbers.length;i++){
+      es5DoubleNumbers.push(numbers[i]*2)
+    }
+    console.log(es5DoubleNumbers)
+    // es6 map 返回新的数组
+
+    let doubleNumbers =numbers.map(function (number) {
+      return number*2
+    })
+    // 再次遍历
+    doubleNumbers.forEach(number=>
+      console.log(number)
+    )
+    console.log(doubleNumbers)
+    // =========== */
+    // 场景二 将数组中的某一项移到另一个数组中
+    let persons = [
+      {name:'Yang',age:28},
+      {name:'Yong',age:18},
+      {name:'Ju',age:38},
+    ]
+    let person = persons.map(function(person){
+      return person.name
+    })
+    console.log(person)
+  </script>
+</body>
+
+</html>
