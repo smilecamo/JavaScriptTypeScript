@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>everySome</title>
+</head>
+<body>
+  <script>
+    const stus = [
+      {name:'zhangsan',age:18},
+      {name:'lisi',age:8},
+      {name:'wangwu',age:28},
+      {name:'maliu',age:38},
+    ]
+    // some 一真全真
+    let some = stus.some(function(stu){
+      return stu.age>18
+    })
+    // every 一假全假
+    let every = stus.every(function(stu){
+      return stu.age>18
+    })
+    console.log('some==='+some)
+    console.log('every==='+every)
+    // *********************************
+    console.log('*************************')
+    // 非空判断
+    function Filed(value){
+      this.value = value
+    }
+    Filed.prototype.validate=function(){
+      return this.value.length>0
+    }
+    var userName = new Filed('userName')
+    var userAge = new Filed('userAge')
+    let fileds=[userName,userAge]
+    let formIsTrue = fileds.every(function(filed){
+      return filed.validate()
+    })
+    console.log(formIsTrue)
+    </script>
+</body>
+</html>

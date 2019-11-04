@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>reduce</title>
+</head>
+<body>
+  <script>
+    /**
+     * 语法
+     * arr.reduce(callback,[initialValue])
+     * callback (
+     *  accumulator 累计器
+     *  currentValue 当前值
+     *  index 索引
+     *  array 调用的数组
+     * )
+     * initialValue 初始值
+     * 
+    */
+  //  场景一 求和
+    let num = [1,2,3]
+    let sum = num.reduce(function(prev,prev){
+      return prev+prev
+    },0)
+    console.log(sum)
+  // 场景二 将数组中的某些值提取出来
+    let primaryColors=[
+      {color:'yellow'},
+      {color:'red'},
+      {color:'black'},
+    ]
+    let colors = primaryColors.reduce(function(prev,current){
+      prev.push(current.color)
+      return prev
+    },[])
+    console.log(colors)
+    </script>
+</body>
+</html>
