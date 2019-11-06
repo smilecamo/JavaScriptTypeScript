@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /**
+     * promise
+    */
+    const doms = [
+      {title:'li1',body:'this is li1'},
+      {title:'li2',body:'this is li2'},
+      {title:'li3',body:'this is li3'},
+    ]
+    let documentAdd1 = ()=>{
+      setTimeout(()=>{
+        let html=''
+        doms.forEach((dom)=>{
+          html+=`<li>${dom.title}</li>`
+        })
+        document.body.innerHTML=html
+      },2000)
+    }
+    let documentAdd2 = (dom,callback)=>{
+      setTimeout(()=>{
+        doms.push(dom)
+        callback()
+      },3000)
+    }
+    documentAdd2({title:'li4',body:'this is li4'},documentAdd1)
+    </script>
+</body>
+</html>

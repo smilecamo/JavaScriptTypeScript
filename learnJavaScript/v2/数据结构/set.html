@@ -4,9 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Set</title>
 </head>
 <body>
-  
+  <script>
+    /**
+     * set 可以存不重复的任意数据类型
+     * add() 添加值
+     * size 查看值个数
+     * has() 查看是否有该值
+     * delete() 删除值
+    */
+    let set1 = new Set()
+    set1.add(100)
+    set1.add('a string')
+    set1.add({name:'zhangsan'})
+    set1.add(100)
+    console.log(set1)
+    console.log(set1.size) 
+    console.log(set1.has(100))
+    </script>
 </body>
 </html>
