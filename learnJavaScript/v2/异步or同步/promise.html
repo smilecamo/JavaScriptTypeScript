@@ -16,6 +16,7 @@
       {title:'li2',body:'this is li2'},
       {title:'li3',body:'this is li3'},
     ]
+
     let documentAdd1 = ()=>{
       setTimeout(()=>{
         let html=''
@@ -25,13 +26,27 @@
         document.body.innerHTML=html
       },2000)
     }
+    // es5
     let documentAdd2 = (dom,callback)=>{
       setTimeout(()=>{
         doms.push(dom)
         callback()
       },3000)
     }
-    documentAdd2({title:'li4',body:'this is li4'},documentAdd1)
+    // documentAdd2({title:'li4',body:'this is li4'},documentAdd1)
+    // promise
+    let documentCreate = (dom)=>{
+      return new Promise((resolve,reject)=>{
+        doms.push(dom)
+        const error = false
+        if(!error){
+          resolve()
+        }else{
+          reject('error')
+        }
+      })
+    }
+    documentCreate({title:'li4',body:'this is li4'}).then(documentAdd1).catch(err=>console.log(err))
     </script>
 </body>
 </html>
